@@ -104,7 +104,13 @@ body::before {
   z-index: 1;
 }
 
-.products-section h2 {
+.pillars-section {
+  position: relative;
+  z-index: 1;
+}
+
+.products-section h2,
+.pillars-section h2 {
   margin-bottom: 14px;
   text-align: center;
   font-size: clamp(1.35rem, 3vw, 1.8rem);

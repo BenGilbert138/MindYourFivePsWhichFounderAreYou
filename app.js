@@ -129,8 +129,11 @@ function renderOverview() {
         <div class="products-grid">${productCards}</div>
       </section>
 
-      <section class="pillars">
-        ${cards}
+      <section class="pillars-section" aria-labelledby="pillars-heading">
+        <h2 id="pillars-heading">The 5 Ps Of Entrepreneurialsm</h2>
+        <div class="pillars">
+          ${cards}
+        </div>
       </section>
     </div>
   `;
