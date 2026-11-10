@@ -1,7 +1,8 @@
 const app = document.getElementById("app");
 const state = {
   currentIndex: 0,
-  answers: []
+  answers: [],
+  feedbackShown: false
 };
 
 function escapeHtml(value) {
@@ -41,6 +42,7 @@ function calculateResults() {
 function startQuiz() {
   state.currentIndex = 0;
   state.answers = [];
+  state.feedbackShown = false;
   renderQuestion();
 }
 
@@ -92,16 +94,36 @@ function renderOverview() {
 
 function renderQuestion() {
   const question = questions[state.currentIndex];
+  const founderGuide = founderMatches[question.category];
+  const isCorrect = state.answers[state.currentIndex] === question.answer;
+  const feedback = state.feedbackShown
+    ? `
+      <section class="answer-feedback ${isCorrect ? "correct-feedback" : "incorrect-feedback"}" aria-live="polite">
+        <p class="eyebrow">${isCorrect ? "Correct" : "Not quite"}</p>
+        <h3>Correct answer: ${escapeHtml(question.answer)}</h3>
+        <p>${escapeHtml(question.explanation)}</p>
+        <button class="btn secondary change-answer" id="change-answer">Change my answer</button>
+      </section>
+    `
+    : "";
 
   app.innerHTML = `
     <div class="page-shell quiz-shell">
       <div class="quiz-progress">
-        <span>Challenge ${state.currentIndex + 1} of ${questions.length}</span>
-        <strong>Up to 5 points</strong>
+        <span>Challenge ${state.currentIndex + 1} of ${questions.length} · ${question.year}</span>
+        <strong>${calculateResults().points}/${questions.length * 5} points</strong>
       </div>
 
       <div class="card quiz-card">
         <p class="eyebrow">${question.category}</p>
+        <div class="founder-guide">
+          <img src="assets/${founderGuide.avatar}-avatar.svg" alt="${escapeHtml(founderGuide.name)}" class="guide-avatar" />
+          <div>
+            <p class="eyebrow">${escapeHtml(question.category)} founder guide</p>
+            <strong>${escapeHtml(founderGuide.name)}</strong>
+            <span>${escapeHtml(founderGuide.company)}</span>
+          </div>
+        </div>
         <h2>${escapeHtml(question.entrepreneur)}</h2>
         <p class="challenge-copy">${escapeHtml(question.question)}</p>
 
@@ -110,36 +132,43 @@ function renderQuestion() {
             .map(
               (choice) => `
                 <label class="option">
-                  <input type="radio" name="quiz-choice" value="${escapeHtml(choice)}" ${state.answers[state.currentIndex] === choice ? "checked" : ""}>
+                  <input type="radio" name="quiz-choice" value="${escapeHtml(choice)}" ${state.answers[state.currentIndex] === choice ? "checked" : ""} ${state.feedbackShown ? "disabled" : ""}>
                   <span>${escapeHtml(choice)}</span>
                 </label>
               `
             )
             .join("")}
         </div>
+        ${feedback}
 
         <div class="quiz-actions">
           <button class="btn secondary" id="prev-question" ${state.currentIndex === 0 ? "disabled" : ""}>Back</button>
-          <button class="btn primary" id="next-question">${state.currentIndex === questions.length - 1 ? "Finish" : "Next"}</button>
+          <button class="btn primary" id="next-question">${state.feedbackShown ? (state.currentIndex === questions.length - 1 ? "See results" : "Next challenge") : "Check answer"}</button>
         </div>
       </div>
     </div>
   `;
 
-  document.querySelectorAll('input[name="quiz-choice"]').forEach((input) => {
-    input.addEventListener("change", (event) => {
-      state.answers[state.currentIndex] = event.target.value;
-    });
-  });
-
   document.getElementById("prev-question").addEventListener("click", () => {
     if (state.currentIndex > 0) {
       state.currentIndex -= 1;
+      state.feedbackShown = state.answers[state.currentIndex] !== undefined;
       renderQuestion();
     }
   });
 
   document.getElementById("next-question").addEventListener("click", () => {
+    if (state.feedbackShown) {
+      if (state.currentIndex < questions.length - 1) {
+        state.currentIndex += 1;
+        state.feedbackShown = state.answers[state.currentIndex] !== undefined;
+        renderQuestion();
+      } else {
+        renderResults();
+      }
+      return;
+    }
+
     const selected = document.querySelector('input[name="quiz-choice"]:checked');
 
     if (!selected) {
@@ -148,14 +177,14 @@ function renderQuestion() {
     }
 
     state.answers[state.currentIndex] = selected.value;
+    state.feedbackShown = true;
+    renderQuestion();
+  });
 
-    if (state.currentIndex < questions.length - 1) {
-      state.currentIndex += 1;
-      renderQuestion();
-      return;
-    }
-
-    renderResults();
+  document.getElementById("change-answer")?.addEventListener("click", () => {
+    delete state.answers[state.currentIndex];
+    state.feedbackShown = false;
+    renderQuestion();
   });
 }
 

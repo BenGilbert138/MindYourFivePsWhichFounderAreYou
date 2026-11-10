@@ -80,6 +80,7 @@ const fivePs = [
 const questions = [
   {
     category: "Product",
+    year: 1978,
     entrepreneur: "James Dyson – bagless vacuum (1978–93)",
     question: "You’ve built a bagless vacuum that outperforms everything on sale. Big manufacturers, who earn money from replacement bags, won’t touch it, and you’re short of cash.",
     answer: "Licence it in a market that will back it, then fund and launch your own brand",
@@ -93,6 +94,7 @@ const questions = [
   },
   {
     category: "Product",
+    year: 2007,
     entrepreneur: "Steve Jobs / Apple – iPhone (2007)",
     question: "Every popular phone has a physical keyboard and a stylus. You believe a full touchscreen is better, but it’s unproven and risky.",
     answer: "Drop the keyboard and build the whole experience around multi-touch",
@@ -106,6 +108,7 @@ const questions = [
   },
   {
     category: "Product",
+    year: 1873,
     entrepreneur: "Levi Strauss – riveted jeans (1873)",
     question: "A tailor, Jacob Davis, has invented copper-riveted work trousers that don’t tear. He can’t afford the patent fee. You’re a wholesale merchant with fabric and money.",
     answer: "Partner with him, pay the patent and mass-produce durable work trousers",
@@ -119,6 +122,7 @@ const questions = [
   },
   {
     category: "Product",
+    year: 2000,
     entrepreneur: "Sara Blakely – Spanx (2000)",
     question: "You’ve designed footless, body-shaping tights. Hosiery mills, mostly run by men, turn you down because you’re an unknown with no experience.",
     answer: "Keep approaching mills in person until one agrees to make a prototype",
@@ -132,6 +136,7 @@ const questions = [
   },
   {
     category: "Price",
+    year: 1908,
     entrepreneur: "Henry Ford – Model T (1908–27)",
     question: "Cars are luxury goods that cost more than a typical worker earns in a year. You want one in every household.",
     answer: "Redesign production around a moving assembly line and pass the savings on",
@@ -145,6 +150,7 @@ const questions = [
   },
   {
     category: "Price",
+    year: 1950,
     entrepreneur: "Ingvar Kamprad – IKEA (1950s)",
     question: "Rival Swedish furniture makers pressure suppliers to boycott you, threatening your low prices.",
     answer: "Source from Poland and redesign furniture as flat-pack",
@@ -158,6 +164,7 @@ const questions = [
   },
   {
     category: "Price",
+    year: 1890,
     entrepreneur: "Thomas Lipton – Lipton tea (1890)",
     question: "Tea passes through many middlemen before it reaches customers, so it’s expensive for ordinary families.",
     answer: "Buy plantations and sell directly in packaged form, cutting out middlemen",
@@ -171,6 +178,7 @@ const questions = [
   },
   {
     category: "Price",
+    year: 2003,
     entrepreneur: "Jack Ma – Taobao (2003)",
     question: "eBay dominates online shopping in China and charges sellers fees. Buyers and sellers also don’t trust each other.",
     answer: "Make Taobao free for sellers and build trust with an escrow payment system",
@@ -184,6 +192,7 @@ const questions = [
   },
   {
     category: "Place",
+    year: 1994,
     entrepreneur: "Jeff Bezos – Amazon (1994–95)",
     question: "You want to offer every book ever published, but a shop that big (and its stock) is impossible for a start-up.",
     answer: "Use the web as the shop and fulfil orders from wholesalers’ stock at first",
@@ -197,6 +206,7 @@ const questions = [
   },
   {
     category: "Place",
+    year: 1955,
     entrepreneur: "Ray Kroc – McDonald’s franchising (1955)",
     question: "You want hamburger restaurants nationwide, with the same quality in each, but you have limited capital.",
     answer: "Franchise with strict standard systems, and own the land that franchisees lease",
@@ -210,6 +220,7 @@ const questions = [
   },
   {
     category: "Place",
+    year: 1872,
     entrepreneur: "Aaron Montgomery Ward – mail order (1872)",
     question: "Rural Americans pay high prices at local general stores and have little choice. They’re spread across a huge country.",
     answer: "Sell by mail-order catalogue with a satisfaction-guaranteed, money-back promise",
@@ -223,6 +234,7 @@ const questions = [
   },
   {
     category: "Place",
+    year: 1998,
     entrepreneur: "Mo Ibrahim – Celtel (1998)",
     question: "Across Africa, few people have landlines, and most can’t afford contracts or pass credit checks.",
     answer: "Build mobile networks directly and sell prepaid airtime through local vendors",
@@ -236,6 +248,7 @@ const questions = [
   },
   {
     category: "Promotion",
+    year: 1890.5,
     entrepreneur: "Asa Candler – Coca-Cola (1890s)",
     question: "Your syrup drink is little-known and you want people across America to try it.",
     answer: "Hand out free-drink coupons and put the logo on everyday items",
@@ -249,6 +262,7 @@ const questions = [
   },
   {
     category: "Promotion",
+    year: 1940,
     entrepreneur: "Estée Lauder – skincare (1940s)",
     question: "Your brand is new and has no advertising budget. Department stores are reluctant to stock it.",
     answer: "Give out free samples and personal demonstrations",
@@ -262,6 +276,7 @@ const questions = [
   },
   {
     category: "Promotion",
+    year: 1979,
     entrepreneur: "Akio Morita / Sony – Walkman (1979)",
     question: "Market research says nobody will buy a personal stereo that can’t record. Your engineers believe in it.",
     answer: "Let the public experience it: give staff and young trendsetters Walkmans to wear and demo in public",
@@ -275,6 +290,7 @@ const questions = [
   },
   {
     category: "Promotion",
+    year: 1976,
     entrepreneur: "Anita Roddick – The Body Shop (1976)",
     question: "You can’t afford advertising, and the beauty industry sells glamour and promises.",
     answer: "Make ethics and campaigning the story, earning press coverage and loyalty",
@@ -288,6 +304,7 @@ const questions = [
   },
   {
     category: "People",
+    year: 1900,
     entrepreneur: "Madam C.J. Walker – hair care (1900s)",
     question: "You make hair products for Black women, but mainstream retail and funding are closed to you.",
     answer: "Recruit and train a national network of women sales agents",
@@ -301,6 +318,7 @@ const questions = [
   },
   {
     category: "People",
+    year: 2000.5,
     entrepreneur: "Tony Hsieh – Zappos (2000s)",
     question: "Many customers distrust buying shoes online because they can’t try them on.",
     answer: "Make service the differentiator: empower staff, free shipping and returns",
@@ -314,6 +332,7 @@ const questions = [
   },
   {
     category: "People",
+    year: 1962,
     entrepreneur: "Dame Stephanie Shirley – Freelance Programmers (1962)",
     question: "Skilled women programmers leave work after marriage or childbirth, and clients doubt firms run by women.",
     answer: "Build a team of women programmers working flexibly from home",
@@ -327,6 +346,7 @@ const questions = [
   },
   {
     category: "People",
+    year: 1963,
     entrepreneur: "Mary Kay Ash – Mary Kay Cosmetics (1963)",
     question: "You want to build a sales force of women with little business experience, many of whom lack confidence.",
     answer: "Train, recognise and reward them publicly with prizes and encouragement",
@@ -339,3 +359,5 @@ const questions = [
     explanation: "Mary Kay Ash built the company around recognition, training and rewards, making consultants proud and motivated."
   }
 ];
+
+questions.sort((first, second) => first.year - second.year);
