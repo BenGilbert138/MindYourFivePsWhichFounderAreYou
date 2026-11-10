@@ -125,7 +125,7 @@ function renderQuestion() {
           </div>
         </div>
         <h2>${escapeHtml(question.entrepreneur)}</h2>
-        <p class="challenge-copy">${escapeHtml(question.question)}</p>
+        <p class="challenge-copy">${escapeHtml(question.question)} What do you do?</p>
 
         <div class="options">
           ${question.choices
