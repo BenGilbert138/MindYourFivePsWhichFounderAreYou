@@ -79,7 +79,7 @@ function renderOverview() {
         </div>
         <p class="eyebrow">Marketing essentials</p>
         <h1>Mind Your Five Ps: Which Founder Are You?</h1>
-        <p class="subtitle">Take on 20 real-world business dilemmas across Product, Price, Place, Promotion, and People. Your answers reveal the founder whose instincts you share.</p>
+        <p class="subtitle">Every great business starts with a problem. From Levi Strauss’s riveted jeans to Sara Blakely’s Spanx, entrepreneurs have faced rival boycotts, sceptical investors, missing infrastructure and unproven ideas. We present 20 real world dilemmas, exploring how each entrepreneur solved challenges of Product, Price, Place, Promotion and People, and discover which founder’s instincts you share.</p>
         <button class="btn primary" id="start-quiz">Start quiz</button>
       </header>
 
