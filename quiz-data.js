@@ -322,7 +322,7 @@ const questions = [
     category: "People",
     year: 1900,
     entrepreneur: "Madam C.J. Walker – hair care (1900s)",
-    icon: "🪮",
+    icon: "💇",
     question: "You make hair products for Black women, but mainstream retail and funding are closed to you.",
     answer: "Recruit and train a national network of women sales agents",
     choices: [
