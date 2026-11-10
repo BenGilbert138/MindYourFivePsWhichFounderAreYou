@@ -47,6 +47,15 @@ function startQuiz() {
 }
 
 function renderOverview() {
+  const productCards = questions
+    .map((question, index) => `
+      <article class="product-card">
+        <span class="product-icon" aria-hidden="true">${question.icon}</span>
+        <span class="product-name">${index + 1}. ${escapeHtml(question.entrepreneur)}</span>
+      </article>
+    `)
+    .join("");
+
   const cards = fivePs
     .map((pillar) => {
       const founderKey = {
@@ -74,14 +83,15 @@ function renderOverview() {
   app.innerHTML = `
     <div class="page-shell">
       <header class="hero">
-        <div class="hero-banner">
-          <img src="assets/product-icons.svg" alt="Product and marketing icons" />
-        </div>
-        <p class="eyebrow">Marketing essentials</p>
         <h1>Mind Your Five Ps: Which Founder Are You?</h1>
         <p class="subtitle">Every great business starts with a problem. From Levi Strauss’s riveted jeans to Sara Blakely’s Spanx, entrepreneurs have faced rival boycotts, sceptical investors, missing infrastructure and unproven ideas. We present 20 real world dilemmas, exploring how each entrepreneur solved challenges of Product, Price, Place, Promotion and People, and discover which founder’s instincts you share.</p>
         <button class="btn primary" id="start-quiz">Start quiz</button>
       </header>
+
+      <section class="products-section" aria-labelledby="products-heading">
+        <h2 id="products-heading">20 challenges, 20 products</h2>
+        <div class="products-grid">${productCards}</div>
+      </section>
 
       <section class="pillars">
         ${cards}

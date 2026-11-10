@@ -74,6 +74,51 @@ body::before {
   filter: drop-shadow(0 16px 30px rgba(15, 23, 42, 0.35));
 }
 
+.products-section {
+  position: relative;
+  z-index: 1;
+}
+
+.products-section h2 {
+  margin-bottom: 14px;
+  text-align: center;
+  font-size: clamp(1.35rem, 3vw, 1.8rem);
+}
+
+.products-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 12px;
+}
+
+.product-card {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  min-width: 0;
+  padding: 14px;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 16px;
+  background: var(--panel);
+}
+
+.product-icon {
+  display: grid;
+  place-items: center;
+  width: 44px;
+  height: 44px;
+  flex: 0 0 auto;
+  border-radius: 13px;
+  background: rgba(251, 191, 36, 0.14);
+  font-size: 1.6rem;
+}
+
+.product-name {
+  color: var(--muted);
+  font-size: 0.88rem;
+  line-height: 1.35;
+}
+
 .eyebrow {
   margin: 0 0 12px;
   color: var(--muted);
