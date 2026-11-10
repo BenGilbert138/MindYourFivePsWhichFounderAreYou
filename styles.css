@@ -336,6 +336,28 @@ h1 {
   gap: 10px;
 }
 
+.question-portrait {
+  display: flex;
+  justify-content: center;
+  margin: 0 0 20px;
+}
+
+.question-portrait img {
+  width: min(100%, 180px);
+  aspect-ratio: 1;
+  object-fit: cover;
+  border: 2px solid rgba(255, 255, 255, 0.4);
+  border-radius: 20px;
+}
+
+.answer-portrait {
+  width: min(100%, 180px);
+  aspect-ratio: 1;
+  object-fit: cover;
+  border: 2px solid rgba(255, 255, 255, 0.35);
+  border-radius: 18px;
+}
+
 .result-item.correct {
   border-color: rgba(52, 211, 153, 0.5);
 }
@@ -413,12 +435,13 @@ h1 {
 }
 
 .match-avatar {
-  width: 76px;
-  height: 76px;
+  width: min(100%, 180px);
+  aspect-ratio: 1;
   display: block;
   margin-bottom: 16px;
   border: 2px solid rgba(255, 255, 255, 0.5);
-  border-radius: 50%;
+  border-radius: 20px;
+  object-fit: cover;
 }
 
 .match-card h3 {

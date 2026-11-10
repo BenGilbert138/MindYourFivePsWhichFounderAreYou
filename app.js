@@ -142,6 +142,13 @@ function renderQuestion() {
   const question = questions[state.currentIndex];
   const founderGuide = founderMatches[question.category];
   const isCorrect = state.answers[state.currentIndex] === question.answer;
+  const questionPortrait = question.image
+    ? `
+      <div class="question-portrait">
+        <img src="assets/${escapeHtml(question.image)}" alt="Portrait of ${escapeHtml(question.entrepreneur)}" />
+      </div>
+    `
+    : "";
   const feedback = state.feedbackShown
     ? `
       <section class="answer-feedback ${isCorrect ? "correct-feedback" : "incorrect-feedback"}" aria-live="polite">
@@ -170,6 +177,7 @@ function renderQuestion() {
             <span>${escapeHtml(founderGuide.company)}</span>
           </div>
         </div>
+        ${questionPortrait}
         <h2>${escapeHtml(question.entrepreneur)}</h2>
         <p class="challenge-copy">${escapeHtml(question.question)} What do you do?</p>
 
@@ -242,7 +250,7 @@ function renderResults() {
       const founder = founderMatches[category];
       return `
         <article class="match-card">
-          <img src="assets/${founder.avatar}-avatar.svg" alt="${escapeHtml(founder.name)}" class="match-avatar" />
+          <img src="assets/${founder.portrait}" alt="${escapeHtml(founder.name)}" class="match-avatar" />
           <p class="eyebrow">${escapeHtml(category)} match</p>
           <h3>${escapeHtml(founder.name)}</h3>
           <p class="match-company">${escapeHtml(founder.company)} · ${escapeHtml(founder.symbol)}</p>
@@ -276,6 +284,9 @@ function renderResults() {
                 <article class="result-item ${isCorrect ? "correct" : "incorrect"}">
                   <p class="eyebrow">Challenge ${index + 1} · ${escapeHtml(question.category)}</p>
                   <h3>${escapeHtml(question.entrepreneur)}</h3>
+                  ${question.image
+                    ? `<img src="assets/${escapeHtml(question.image)}" alt="Portrait of ${escapeHtml(question.entrepreneur)}" class="answer-portrait" />`
+                    : ""}
                   <p>${escapeHtml(question.question)}</p>
                   <div class="result-meta">
                     <span>Your answer: ${escapeHtml(userAnswer || "No answer")}</span>
