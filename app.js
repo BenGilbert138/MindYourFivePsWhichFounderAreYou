@@ -47,6 +47,36 @@ function startQuiz() {
 }
 
 function renderOverview() {
+  const portraits = [
+    "ray-kroc",
+    "tony-hsieh",
+    "anita-roddick",
+    "stephanie-shirley",
+    "asa-candler",
+    "madam-cj-walker",
+    "mo-ibrahim",
+    "jeff-bezos",
+    "akio-morita",
+    "estee-lauder",
+    "additional-01",
+    "additional-02",
+    "additional-03",
+    "additional-04",
+    "additional-05",
+    "additional-06",
+    "additional-07",
+    "additional-08",
+    "additional-09",
+    "additional-10"
+  ];
+  const renderPortraitRow = (row) => `
+    <div class="hero-portrait-row">
+      ${row.map((image) => `
+        <img src="assets/founder-portraits/${image}.jpg" alt="" class="hero-portrait" />
+      `).join("")}
+    </div>
+  `;
+
   const productCards = questions
     .map((question, index) => `
       <article class="product-card">
@@ -83,9 +113,15 @@ function renderOverview() {
   app.innerHTML = `
     <div class="page-shell">
       <header class="hero">
+        <div class="hero-portrait-frame" aria-hidden="true">
+          ${renderPortraitRow(portraits.slice(0, 10))}
+        </div>
         <h1>Mind Your Five Ps: Which Founder Are You?</h1>
         <p class="subtitle">Every great business starts with a problem. From Levi Strauss’s riveted jeans to Sara Blakely’s Spanx, entrepreneurs have faced rival boycotts, sceptical investors, missing infrastructure and unproven ideas. We present 20 real world dilemmas, exploring how each entrepreneur solved challenges of Product, Price, Place, Promotion and People, and discover which founder’s instincts you share.</p>
         <button class="btn primary" id="start-quiz">Start quiz</button>
+        <div class="hero-portrait-frame hero-portrait-frame-bottom" aria-hidden="true">
+          ${renderPortraitRow(portraits.slice(10))}
+        </div>
       </header>
 
       <section class="products-section" aria-labelledby="products-heading">
