@@ -67,7 +67,8 @@ function renderOverview() {
     "additional-07",
     "additional-08",
     "additional-09",
-    "additional-10"
+    // Reuse Aaron Montgomery Ward's mapped portrait instead of duplicating Jack Ma.
+    "additional-09"
   ];
   const renderPortraitRow = (row) => `
     <div class="hero-portrait-row">
