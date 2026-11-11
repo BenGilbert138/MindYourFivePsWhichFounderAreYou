@@ -67,7 +67,6 @@ function renderOverview() {
     "additional-07",
     "additional-08",
     "additional-09",
-    // Reuse Aaron Montgomery Ward's mapped portrait instead of duplicating Jack Ma.
     "additional-09"
   ];
   const renderPortraitRow = (row) => `
@@ -115,8 +114,8 @@ function renderOverview() {
         <div class="hero-portrait-frame" aria-hidden="true">
           ${renderPortraitRow(portraits.slice(0, 10))}
         </div>
-        <h1>Mind Your Five Ps: Which Founder Are You?</h1>
-        <p class="subtitle">Every great business starts with a problem. From Levi Strauss’s riveted jeans to Sara Blakely’s Spanx, entrepreneurs have faced rival boycotts, sceptical investors, and imperfect odds — and they built something remarkable anyway.</p>
+        <h1>Mind Your Five Ps*: Which Founder Are You?</h1>
+        <p class="subtitle">Every great business starts with a problem. From Levi Strauss’s riveted jeans to Sara Blakely’s Spanx, entrepreneurs have faced rival boycotts, sceptical investors, fierce competition and the need to turn a bold idea into a lasting business.</p>
         <button class="btn primary" id="start-quiz">Start quiz</button>
         <div class="hero-portrait-frame hero-portrait-frame-bottom" aria-hidden="true">
           ${renderPortraitRow(portraits.slice(10))}
