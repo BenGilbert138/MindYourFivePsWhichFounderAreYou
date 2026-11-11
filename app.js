@@ -115,7 +115,7 @@ function renderOverview() {
           ${renderPortraitRow(portraits.slice(0, 10))}
         </div>
         <h1>Mind Your Five Ps: Which Founder Are You?</h1>
-        <p class="subtitle">Every great business starts with a problem. From Levi Strauss’s riveted jeans to Sara Blakely’s Spanx, entrepreneurs have faced rival boycotts, sceptical investors, and turbulent supply chains. This quiz traces how founders think across Product, Price, Place, Promotion and People.</p>
+        <p class="subtitle">Every great business starts with a problem. From Levi Strauss’s riveted jeans to Sara Blakely’s Spanx, entrepreneurs have faced rival boycotts, sceptical investors, and imperfect odds — and they built something remarkable anyway.</p>
         <button class="btn primary" id="start-quiz">Start quiz</button>
         <div class="hero-portrait-frame hero-portrait-frame-bottom" aria-hidden="true">
           ${renderPortraitRow(portraits.slice(10))}
@@ -168,7 +168,6 @@ function renderQuestion() {
       </div>
 
       <div class="card quiz-card">
-        <p class="eyebrow">${question.category}</p>
         ${questionPortrait}
         <h2>${escapeHtml(question.entrepreneur)}</h2>
         <p class="challenge-copy">${escapeHtml(question.question)} What do you do?</p>
@@ -304,4 +303,3 @@ function renderResults() {
 }
 
 renderOverview();
-
