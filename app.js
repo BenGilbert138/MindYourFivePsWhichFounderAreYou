@@ -141,7 +141,6 @@ function renderOverview() {
 
 function renderQuestion() {
   const question = questions[state.currentIndex];
-  const founderGuide = founderMatches[question.category];
   const isCorrect = state.answers[state.currentIndex] === question.answer;
   const questionPortrait = question.image
     ? `
@@ -170,14 +169,6 @@ function renderQuestion() {
 
       <div class="card quiz-card">
         <p class="eyebrow">${question.category}</p>
-        <div class="founder-guide">
-          <img src="assets/${founderGuide.avatar}-avatar.svg" alt="${escapeHtml(founderGuide.name)}" class="guide-avatar" />
-          <div>
-            <p class="eyebrow">${escapeHtml(question.category)} founder guide</p>
-            <strong>${escapeHtml(founderGuide.name)}</strong>
-            <span>${escapeHtml(founderGuide.company)}</span>
-          </div>
-        </div>
         ${questionPortrait}
         <h2>${escapeHtml(question.entrepreneur)}</h2>
         <p class="challenge-copy">${escapeHtml(question.question)} What do you do?</p>
@@ -313,3 +304,4 @@ function renderResults() {
 }
 
 renderOverview();
+
