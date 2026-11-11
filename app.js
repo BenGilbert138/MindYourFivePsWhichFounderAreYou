@@ -100,11 +100,9 @@ function renderOverview() {
         <article class="pillar-card">
           <div class="pillar-header">
             <div class="pillar-icon">${pillar.icon}</div>
-            <img src="assets/${founderKey}-avatar.svg" alt="${founders[pillar.title]}" class="founder-avatar" />
           </div>
           <h3>${pillar.title}</h3>
           <p>${pillar.description}</p>
-          <span>Founder: ${founders[pillar.title]}</span>
         </article>
       `;
     })
@@ -117,7 +115,7 @@ function renderOverview() {
           ${renderPortraitRow(portraits.slice(0, 10))}
         </div>
         <h1>Mind Your Five Ps: Which Founder Are You?</h1>
-        <p class="subtitle">Every great business starts with a problem. From Levi Strauss’s riveted jeans to Sara Blakely’s Spanx, entrepreneurs have faced rival boycotts, sceptical investors, missing infrastructure and unproven ideas. We present 20 real world dilemmas, exploring how each entrepreneur solved challenges of Product, Price, Place, Promotion and People, and discover which founder’s instincts you share.</p>
+        <p class="subtitle">Every great business starts with a problem. From Levi Strauss’s riveted jeans to Sara Blakely’s Spanx, entrepreneurs have faced rival boycotts, sceptical investors, and turbulent supply chains. This quiz traces how founders think across Product, Price, Place, Promotion and People.</p>
         <button class="btn primary" id="start-quiz">Start quiz</button>
         <div class="hero-portrait-frame hero-portrait-frame-bottom" aria-hidden="true">
           ${renderPortraitRow(portraits.slice(10))}
@@ -130,7 +128,7 @@ function renderOverview() {
       </section>
 
       <section class="pillars-section" aria-labelledby="pillars-heading">
-        <h2 id="pillars-heading">The 5 Ps Of Entrepreneurialsm</h2>
+        <h2 id="pillars-heading">The 5 Ps Of Entrepreneurialsm <span class="footnote">* inspired by Henry Mintzberg’s 5 P’s of Strategy</span></h2>
         <div class="pillars">
           ${cards}
         </div>
