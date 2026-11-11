@@ -11,7 +11,7 @@ const founderMatches = {
     name: "Sara Blakely",
     company: "Spanx",
     avatar: "sara-blakely",
-    portrait: "founder-portraits/additional-06.jpg",
+    portrait: "sara-blakely-avatar.svg",
     symbol: "Footless shaping tights",
     quote: "“Don’t be intimidated by what you don’t know. That can be your greatest strength.”",
     quoteSource: "Widely attributed; original source not verified"
@@ -20,7 +20,7 @@ const founderMatches = {
     name: "Jack Ma",
     company: "Alibaba / Taobao",
     avatar: "jack-ma",
-    portrait: "founder-portraits/additional-05.jpg",
+    portrait: "jack-ma-avatar.svg",
     symbol: "Shopping bag (online marketplace)",
     quote: "“Never give up. Today is hard, tomorrow will be worse, but the day after tomorrow will be sunshine.”",
     quoteSource: "Widely attributed; original source not verified"
@@ -81,6 +81,29 @@ const fivePs = [
     icon: "🤝"
   }
 ];
+
+const namedPortraitMap = {
+  "James Dyson – bagless vacuum (1978–93)": "founder-portraits/additional-02.jpg",
+  "Steve Jobs / Apple – iPhone (2007)": "founder-portraits/additional-07.jpg",
+  "Levi Strauss – riveted jeans (1873)": "founder-portraits/additional-08.jpg",
+  "Sara Blakely – Spanx (2000)": "founder-portraits/additional-06.jpg",
+  "Henry Ford – Model T (1908–27)": "founder-portraits/additional-01.jpg",
+  "Ingvar Kamprad – IKEA (1950s)": "founder-portraits/additional-03.jpg",
+  "Thomas Lipton – Lipton tea (1890)": "founder-portraits/additional-04.jpg",
+  "Jack Ma – Taobao (2003)": "founder-portraits/additional-05.jpg",
+  "Jeff Bezos – Amazon (1994–95)": "founder-portraits/jeff-bezos.jpg",
+  "Ray Kroc – McDonald’s franchising (1955)": "founder-portraits/ray-kroc.jpg",
+  "Aaron Montgomery Ward – mail order (1872)": "founder-portraits/additional-09.jpg",
+  "Mo Ibrahim – Celtel (1998)": "founder-portraits/mo-ibrahim.jpg",
+  "Asa Candler – Coca-Cola (1890s)": "founder-portraits/asa-candler.jpg",
+  "Estée Lauder – skincare (1940s)": "founder-portraits/estee-lauder.jpg",
+  "Akio Morita / Sony – Walkman (1979)": "founder-portraits/akio-morita.jpg",
+  "Anita Roddick – The Body Shop (1976)": "founder-portraits/anita-roddick.jpg",
+  "Madam C.J. Walker – hair care (1900s)": "founder-portraits/madam-cj-walker.jpg",
+  "Tony Hsieh – Zappos (2000s)": "founder-portraits/tony-hsieh.jpg",
+  "Dame Stephanie Shirley – Freelance Programmers (1962)": "founder-portraits/stephanie-shirley.jpg",
+  "Mary Kay Ash – Mary Kay Cosmetics (1963)": "founder-portraits/additional-10.jpg"
+};
 
 const questions = [
   {
@@ -247,6 +270,7 @@ const questions = [
     category: "Place",
     year: 1872,
     entrepreneur: "Aaron Montgomery Ward – mail order (1872)",
+    image: "founder-portraits/additional-09.jpg",
     icon: "📬",
     question: "Rural Americans pay high prices at local general stores and have little choice. They’re spread across a huge country.",
     answer: "Sell by mail-order catalogue with a satisfaction-guaranteed, money-back promise",
@@ -390,6 +414,7 @@ const questions = [
     category: "People",
     year: 1963,
     entrepreneur: "Mary Kay Ash – Mary Kay Cosmetics (1963)",
+    image: "founder-portraits/additional-10.jpg",
     icon: "🏆",
     question: "You want to build a sales force of women with little business experience, many of whom lack confidence.",
     answer: "Train, recognise and reward them publicly with prizes and encouragement",
@@ -402,5 +427,24 @@ const questions = [
     explanation: "Mary Kay Ash built the company around recognition, training and rewards, making consultants proud and motivated."
   }
 ];
+
+function reorderChoicesForCorrectOption(question, targetIndex) {
+  const correctChoice = question.answer;
+  const currentIndex = question.choices.indexOf(correctChoice);
+
+  if (currentIndex === -1 || currentIndex === targetIndex) {
+    return;
+  }
+
+  const reordered = [...question.choices];
+  const [answerChoice] = reordered.splice(currentIndex, 1);
+  reordered.splice(targetIndex, 0, answerChoice);
+  question.choices = reordered;
+}
+
+questions.forEach((question, index) => {
+  question.image = namedPortraitMap[question.entrepreneur] || question.image || "";
+  reorderChoicesForCorrectOption(question, (index + 1) % question.choices.length);
+});
 
 questions.sort((first, second) => first.year - second.year);
