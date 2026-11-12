@@ -78,11 +78,10 @@ function reorderChoicesForCorrectOption(question, targetIndex) {
   question.choices = reordered;
 }
 
-questions.forEach((question, index) => {
-  question.image = namedPortraitMap[question.entrepreneur] || question.image || "";
-  const period = question.year === 1890.5 ? "the 1890s" : question.year === 1900 ? "the 1900s" : question.year === 1940 ? "the 1940s" : question.year === 1950 ? "the 1950s" : question.year === 2000.5 ? "the 2000s" : question.year === 2003 ? "the 2000s" : question.year === 2007 ? "the 2000s" : question.year === 1979 ? "the 1970s" : question.year === 1976 ? "the 1970s" : question.year === 1963 ? "the 1960s" : question.year === 1962 ? "the 1960s" : question.year === 1998 ? "the 1990s" : question.year === 1994 ? "the 1990s" : question.year === 1872 ? "the 1870s" : question.year === 1873 ? "the 1870s" : question.year === 1908 ? "the 1900s" : question.year === 1890 ? "the 1890s" : "the 1900s";
-  question.question = `It’s ${period} in ${question.city}, and ${question.question.charAt(0).toLowerCase()}${question.question.slice(1)}`;
-  reorderChoicesForCorrectOption(question, (index + 1) % question.choices.length);
+questions.forEach((q, i) => {
+  if (!q.choices) {
+    console.log("Missing choices:", i, q);
+  }
 });
 
 questions.sort((first, second) => first.year - second.year);
