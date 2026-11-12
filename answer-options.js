@@ -117,6 +117,5 @@ questions.forEach((question) => {
     return ensureSentenceEnding(nextChoice);
   });
 
-  // Keep the correct-answer key in sync with its punctuated displayed choice.
   question.answer = ensureSentenceEnding(originalAnswer);
 });
