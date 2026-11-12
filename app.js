@@ -48,27 +48,28 @@ function startQuiz() {
 
 function renderOverview() {
   const portraits = [
-    "ray-kroc",
-    "tony-hsieh",
-    "anita-roddick",
-    "stephanie-shirley",
-    "asa-candler",
-    "madam-cj-walker",
-    "mo-ibrahim",
-    "jeff-bezos",
-    "akio-morita",
-    "estee-lauder",
-    "additional-01",
-    "additional-02",
-    "additional-03",
-    "additional-04",
-    "additional-05",
-    "additional-06",
-    "additional-07",
-    "additional-08",
-    "additional-09",
-    "additional-09"
-  ];
+  "2_Levi_Strauss",
+  "3_Thomas_Lipton",
+  "1_Aaron_Montgomery_Ward",
+  "4_Asa_Candler",
+  "6_Henry_Ford",
+  "5_Madam_C._J._Walker",
+  "8_Ingvar_Kamprad",
+  "14_Morita_Akio",
+  "7_Estee_Lauder",
+  "9_Ray_Kroc",
+
+  "10_Dame_Stephanie_Shirley",
+  "11_Mary_Kay_Ash",
+  "12_Anita_Roddick",
+  "20_Steve_Jobs",
+  "13_James_Dyson",
+  "15_Jeff_Bezos",
+  "16_Mo_Ibrahim",
+  "19_Jack_Ma",
+  "18_Tony_Hsieh",
+  "17_Sara_Blakely"
+];
   const renderPortraitRow = (row) => `
     <div class="hero-portrait-row">
       ${row.map((image) => `
