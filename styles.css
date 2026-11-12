@@ -1,16 +1,16 @@
 :root {
-  --bg-start: #312e81;
-  --bg-mid: #7c3aed;
-  --bg-end: #0f766e;
-  --panel: rgba(15, 23, 42, 0.72);
-  --panel-soft: rgba(255, 255, 255, 0.08);
-  --text: #f8fafc;
-  --muted: #dbeafe;
-  --accent: #fbbf24;
-  --accent-strong: #f59e0b;
-  --success: #34d399;
-  --danger: #fca5a5;
-  --shadow: 0 24px 60px rgba(15, 23, 42, 0.35);
+  --bg-start: #ffffff;
+  --bg-mid: #ffffff;
+  --bg-end: #ffffff;
+  --panel: #ffffff;
+  --panel-soft: #f8fafc;
+  --text: #172033;
+  --muted: #526078;
+  --accent: #d97706;
+  --accent-strong: #b45309;
+  --success: #059669;
+  --danger: #dc2626;
+  --shadow: 0 16px 36px rgba(15, 23, 42, 0.1);
 }
 
 * { box-sizing: border-box; }
@@ -20,7 +20,7 @@ body {
   min-height: 100vh;
   font-family: "Segoe UI", Arial, sans-serif;
   color: var(--text);
-  background: linear-gradient(135deg, var(--bg-start), var(--bg-mid), var(--bg-end));
+  background: #ffffff;
   position: relative;
 }
 
@@ -28,8 +28,8 @@ body::before {
   content: "";
   position: fixed;
   inset: 0;
-  background: url("assets/animated-background.svg") center/cover no-repeat;
-  opacity: 0.22;
+  background: none;
+  opacity: 0;
   pointer-events: none;
 }
 
@@ -49,7 +49,7 @@ body::before {
 .pillar-card,
 .result-item {
   background: var(--panel);
-  border: 1px solid rgba(255, 255, 255, 0.08);
+  border: 1px solid #e2e8f0;
   border-radius: 24px;
   box-shadow: var(--shadow);
 }
@@ -81,9 +81,9 @@ body::before {
   width: 100%;
   aspect-ratio: 1;
   object-fit: cover;
-  border: 2px solid rgba(255, 255, 255, 0.3);
+  border: 2px solid #e2e8f0;
   border-radius: 12px;
-  box-shadow: 0 8px 18px rgba(15, 23, 42, 0.25);
+  box-shadow: 0 6px 14px rgba(15, 23, 42, 0.12);
 }
 
 .hero-banner {
@@ -96,14 +96,10 @@ body::before {
   max-width: 560px;
   width: 100%;
   border-radius: 18px;
-  filter: drop-shadow(0 16px 30px rgba(15, 23, 42, 0.35));
+  filter: drop-shadow(0 12px 24px rgba(15, 23, 42, 0.16));
 }
 
-.products-section {
-  position: relative;
-  z-index: 1;
-}
-
+.products-section,
 .pillars-section {
   position: relative;
   z-index: 1;
@@ -128,9 +124,9 @@ body::before {
   gap: 12px;
   min-width: 0;
   padding: 14px;
-  border: 1px solid rgba(255, 255, 255, 0.12);
+  border: 1px solid #e2e8f0;
   border-radius: 16px;
-  background: var(--panel);
+  background: #ffffff;
 }
 
 .product-icon {
@@ -140,7 +136,7 @@ body::before {
   height: 44px;
   flex: 0 0 auto;
   border-radius: 13px;
-  background: rgba(251, 191, 36, 0.14);
+  background: #fff7ed;
   font-size: 1.6rem;
 }
 
@@ -194,13 +190,13 @@ h1 {
 
 .btn.primary {
   background: linear-gradient(135deg, var(--accent), var(--accent-strong));
-  color: #1f2937;
+  color: #ffffff;
 }
 
 .btn.secondary {
-  background: rgba(255, 255, 255, 0.1);
+  background: #f1f5f9;
   color: var(--text);
-  border: 1px solid rgba(255, 255, 255, 0.12);
+  border: 1px solid #cbd5e1;
 }
 
 .pillars {
@@ -229,8 +225,8 @@ h1 {
   height: 52px;
   border-radius: 50%;
   object-fit: cover;
-  border: 2px solid rgba(255, 255, 255, 0.4);
-  background: rgba(255, 255, 255, 0.12);
+  border: 2px solid #e2e8f0;
+  background: #f8fafc;
 }
 
 .pillar-card h3 {
@@ -246,7 +242,7 @@ h1 {
 
 .pillar-card span {
   font-size: 0.82rem;
-  color: #fef3c7;
+  color: #92400e;
 }
 
 .pillar-icon {
@@ -255,7 +251,7 @@ h1 {
   display: grid;
   place-items: center;
   border-radius: 16px;
-  background: rgba(251, 191, 36, 0.14);
+  background: #fff7ed;
   font-size: 1.8rem;
 }
 
@@ -297,7 +293,7 @@ h1 {
   padding: 16px 18px;
   border-radius: 16px;
   background: var(--panel-soft);
-  border: 1px solid rgba(255, 255, 255, 0.08);
+  border: 1px solid #e2e8f0;
   font-size: 1rem;
   cursor: pointer;
 }
@@ -352,7 +348,7 @@ h1 {
   width: min(100%, 260px);
   aspect-ratio: 1;
   object-fit: cover;
-  border: 2px solid rgba(255, 255, 255, 0.4);
+  border: 2px solid #e2e8f0;
   border-radius: 20px;
 }
 
@@ -360,16 +356,16 @@ h1 {
   width: min(100%, 200px);
   aspect-ratio: 1;
   object-fit: cover;
-  border: 2px solid rgba(255, 255, 255, 0.35);
+  border: 2px solid #e2e8f0;
   border-radius: 18px;
 }
 
 .result-item.correct {
-  border-color: rgba(52, 211, 153, 0.5);
+  border-color: rgba(5, 150, 105, 0.45);
 }
 
 .result-item.incorrect {
-  border-color: rgba(252, 165, 165, 0.45);
+  border-color: rgba(220, 38, 38, 0.35);
 }
 
 .result-item h3 {
@@ -385,7 +381,7 @@ h1 {
 .result-meta {
   display: grid;
   gap: 6px;
-  color: #e0f2fe;
+  color: #334155;
   font-size: 0.87rem;
 }
 
@@ -435,9 +431,9 @@ h1 {
 
 .match-card {
   padding: 22px 18px;
-  border: 1px solid rgba(251, 191, 36, 0.45);
+  border: 1px solid #fcd9a8;
   border-radius: 20px;
-  background: linear-gradient(145deg, rgba(251, 191, 36, 0.13), var(--panel));
+  background: linear-gradient(145deg, #fffaf2, #ffffff);
 }
 
 .match-avatar {
@@ -445,7 +441,7 @@ h1 {
   aspect-ratio: 1;
   display: block;
   margin-bottom: 16px;
-  border: 2px solid rgba(255, 255, 255, 0.5);
+  border: 2px solid #e2e8f0;
   border-radius: 20px;
   object-fit: cover;
 }
@@ -457,7 +453,7 @@ h1 {
 
 .match-company,
 .category-score {
-  color: #fef3c7;
+  color: #92400e;
   font-size: 0.9rem;
 }
 
@@ -493,7 +489,7 @@ h1 {
 
 .result-item .explanation {
   padding-top: 12px;
-  border-top: 1px solid rgba(255, 255, 255, 0.12);
+  border-top: 1px solid #e2e8f0;
   font-size: 0.92rem;
 }
 
@@ -503,16 +499,16 @@ h1 {
   gap: 14px;
   margin: 0 0 22px;
   padding: 12px 14px;
-  border: 1px solid rgba(255, 255, 255, 0.12);
+  border: 1px solid #e2e8f0;
   border-radius: 16px;
-  background: rgba(255, 255, 255, 0.07);
+  background: #f8fafc;
 }
 
 .guide-avatar {
   width: 58px;
   height: 58px;
   flex: 0 0 auto;
-  border: 2px solid rgba(255, 255, 255, 0.45);
+  border: 2px solid #e2e8f0;
   border-radius: 50%;
 }
 
@@ -535,14 +531,14 @@ h1 {
 .answer-feedback {
   margin: 4px 0 22px;
   padding: 18px;
-  border: 1px solid rgba(52, 211, 153, 0.5);
+  border: 1px solid rgba(5, 150, 105, 0.4);
   border-radius: 16px;
-  background: rgba(52, 211, 153, 0.1);
+  background: #ecfdf5;
 }
 
 .answer-feedback.incorrect-feedback {
-  border-color: rgba(251, 191, 36, 0.5);
-  background: rgba(251, 191, 36, 0.1);
+  border-color: rgba(217, 119, 6, 0.4);
+  background: #fffbeb;
 }
 
 .answer-feedback .eyebrow {
