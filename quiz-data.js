@@ -85,3 +85,8 @@ questions.forEach((q, i) => {
 });
 
 questions.sort((first, second) => first.year - second.year);
+questions.forEach((q, i) => {
+  if (!Array.isArray(q.choices)) {
+    console.error(`Question ${i} is missing choices:`, q);
+  }
+});
