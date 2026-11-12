@@ -1,561 +1,81 @@
+/* Light-blue backdrop with dark interior panels and white text. */
 :root {
-  --bg-start: #ffffff;
-  --bg-mid: #ffffff;
-  --bg-end: #ffffff;
-  --panel: #ffffff;
-  --panel-soft: #f8fafc;
-  --text: #172033;
-  --muted: #526078;
-  --accent: #d97706;
-  --accent-strong: #b45309;
-  --success: #059669;
-  --danger: #dc2626;
-  --shadow: 0 16px 36px rgba(15, 23, 42, 0.1);
+  --bg-start: #eaf5ff;
+  --bg-mid: #d9edff;
+  --bg-end: #c7e4ff;
+  --panel: #17324d;
+  --panel-soft: #244661;
+  --text: #ffffff;
+  --muted: #e5f1fb;
+  --accent: #fbbf24;
+  --accent-strong: #f59e0b;
+  --shadow: 0 16px 36px rgba(23, 50, 77, 0.16);
 }
 
-* { box-sizing: border-box; }
-
 body {
-  margin: 0;
-  min-height: 100vh;
-  font-family: "Segoe UI", Arial, sans-serif;
   color: var(--text);
-  background: #ffffff;
-  position: relative;
+  background: linear-gradient(135deg, var(--bg-start), var(--bg-mid), var(--bg-end));
 }
 
 body::before {
-  content: "";
-  position: fixed;
-  inset: 0;
   background: none;
   opacity: 0;
-  pointer-events: none;
-}
-
-#app {
-  max-width: 1100px;
-  margin: 0 auto;
-  padding: 32px 20px 60px;
-}
-
-.page-shell {
-  display: grid;
-  gap: 24px;
 }
 
 .hero,
 .card,
 .pillar-card,
-.result-item {
-  background: var(--panel);
-  border: 1px solid #e2e8f0;
-  border-radius: 24px;
-  box-shadow: var(--shadow);
-}
-
-.hero {
-  padding: 36px 28px;
-  text-align: center;
-  position: relative;
-  z-index: 1;
-}
-
-.hero-portrait-frame {
-  max-width: 860px;
-  margin: 0 auto 24px;
-}
-
-.hero-portrait-frame-bottom {
-  margin: 24px auto 0;
-}
-
-.hero-portrait-row {
-  display: grid;
-  grid-template-columns: repeat(10, minmax(0, 1fr));
-  gap: 8px;
-}
-
-.hero-portrait {
-  display: block;
-  width: 100%;
-  aspect-ratio: 1;
-  object-fit: cover;
-  border: 2px solid #e2e8f0;
-  border-radius: 12px;
-  box-shadow: 0 6px 14px rgba(15, 23, 42, 0.12);
-}
-
-.hero-banner {
-  display: flex;
-  justify-content: center;
-  margin-bottom: 18px;
-}
-
-.hero-banner img {
-  max-width: 560px;
-  width: 100%;
-  border-radius: 18px;
-  filter: drop-shadow(0 12px 24px rgba(15, 23, 42, 0.16));
-}
-
-.products-section,
-.pillars-section {
-  position: relative;
-  z-index: 1;
-}
-
-.products-section h2,
-.pillars-section h2 {
-  margin-bottom: 14px;
-  text-align: center;
-  font-size: clamp(1.35rem, 3vw, 1.8rem);
-}
-
-.products-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-  gap: 12px;
-}
-
+.result-item,
 .product-card {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  min-width: 0;
-  padding: 14px;
-  border: 1px solid #e2e8f0;
-  border-radius: 16px;
-  background: #ffffff;
-}
-
-.product-icon {
-  display: grid;
-  place-items: center;
-  width: 44px;
-  height: 44px;
-  flex: 0 0 auto;
-  border-radius: 13px;
-  background: #fff7ed;
-  font-size: 1.6rem;
-}
-
-.product-name {
-  color: var(--muted);
-  font-size: 0.88rem;
-  line-height: 1.35;
-}
-
-.eyebrow {
-  margin: 0 0 12px;
-  color: var(--muted);
-  text-transform: uppercase;
-  letter-spacing: 0.12em;
-  font-size: 0.74rem;
-  font-weight: 700;
-}
-
-h1, h2, h3, p { margin-top: 0; }
-
-h1 {
-  margin-bottom: 12px;
-  font-size: clamp(2.3rem, 6vw, 4rem);
-}
-
-.subtitle {
-  max-width: 680px;
-  margin: 0 auto 20px;
-  font-size: 1.08rem;
-  color: var(--muted);
-}
-
-.btn {
-  appearance: none;
-  border: 0;
-  border-radius: 999px;
-  padding: 0.9rem 1.4rem;
-  font-size: 1rem;
-  font-weight: 700;
-  cursor: pointer;
-  transition: transform 0.18s ease, opacity 0.18s ease;
-}
-
-.btn:hover { transform: translateY(-1px); }
-
-.btn:disabled {
-  opacity: 0.5;
-  cursor: not-allowed;
-  transform: none;
-}
-
-.btn.primary {
-  background: linear-gradient(135deg, var(--accent), var(--accent-strong));
-  color: #ffffff;
-}
-
-.btn.secondary {
-  background: #f1f5f9;
   color: var(--text);
-  border: 1px solid #cbd5e1;
-}
-
-.pillars {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-  gap: 18px;
-}
-
-.pillar-card {
-  padding: 22px 18px;
-  display: grid;
-  gap: 10px;
-  position: relative;
-  z-index: 1;
-}
-
-.pillar-header {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 12px;
-}
-
-.founder-avatar {
-  width: 52px;
-  height: 52px;
-  border-radius: 50%;
-  object-fit: cover;
-  border: 2px solid #e2e8f0;
-  background: #f8fafc;
-}
-
-.pillar-card h3 {
-  margin-bottom: 0;
-  font-size: 1.15rem;
-}
-
-.pillar-card p {
-  margin-bottom: 0;
-  color: var(--muted);
-  line-height: 1.5;
-}
-
-.pillar-card span {
-  font-size: 0.82rem;
-  color: #92400e;
-}
-
-.pillar-icon {
-  width: 52px;
-  height: 52px;
-  display: grid;
-  place-items: center;
-  border-radius: 16px;
-  background: #fff7ed;
-  font-size: 1.8rem;
-}
-
-.quiz-shell {
-  max-width: 720px;
-  margin: 0 auto;
-  width: 100%;
-}
-
-.quiz-progress {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  gap: 12px;
-  color: var(--muted);
-  font-size: 0.95rem;
-}
-
-.quiz-card {
-  padding: 28px 24px;
-}
-
-.quiz-card h2 {
-  margin-bottom: 20px;
-  font-size: clamp(1.5rem, 4vw, 2.2rem);
-  line-height: 1.3;
-}
-
-.options {
-  display: grid;
-  gap: 14px;
-  margin-bottom: 22px;
+  background: var(--panel);
+  border-color: rgba(255, 255, 255, 0.16);
 }
 
 .option {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  padding: 16px 18px;
-  border-radius: 16px;
+  color: var(--text);
   background: var(--panel-soft);
-  border: 1px solid #e2e8f0;
-  font-size: 1rem;
-  cursor: pointer;
-}
-
-.option input {
-  accent-color: var(--accent);
-  width: 18px;
-  height: 18px;
-}
-
-.quiz-actions {
-  display: flex;
-  justify-content: space-between;
-  gap: 14px;
-  flex-wrap: wrap;
-}
-
-.results-shell {
-  max-width: 900px;
-  margin: 0 auto;
-}
-
-.results-card {
-  padding: 28px 24px;
-}
-
-.score-copy {
-  color: var(--muted);
-  font-size: 1.05rem;
-}
-
-.results-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-  gap: 16px;
-  margin: 20px 0 24px;
-}
-
-.result-item {
-  padding: 18px 16px;
-  display: grid;
-  gap: 10px;
-}
-
-.question-portrait {
-  display: flex;
-  justify-content: center;
-  margin: 0 0 20px;
-}
-
-.question-portrait img {
-  width: min(100%, 260px);
-  aspect-ratio: 1;
-  object-fit: cover;
-  border: 2px solid #e2e8f0;
-  border-radius: 20px;
-}
-
-.answer-portrait {
-  width: min(100%, 200px);
-  aspect-ratio: 1;
-  object-fit: cover;
-  border: 2px solid #e2e8f0;
-  border-radius: 18px;
-}
-
-.result-item.correct {
-  border-color: rgba(5, 150, 105, 0.45);
-}
-
-.result-item.incorrect {
-  border-color: rgba(220, 38, 38, 0.35);
-}
-
-.result-item h3 {
-  margin-bottom: 0;
-}
-
-.result-item p {
-  color: var(--muted);
-  line-height: 1.5;
-  margin-bottom: 0;
+  border-color: rgba(255, 255, 255, 0.16);
 }
 
 .result-meta {
-  display: grid;
-  gap: 6px;
-  color: #334155;
-  font-size: 0.87rem;
-}
-
-@media (max-width: 640px) {
-  #app { padding-top: 24px; }
-
-  .hero,
-  .quiz-card,
-  .results-card {
-    padding: 22px 18px;
-  }
-
-  .hero-portrait-row {
-    grid-template-columns: repeat(5, minmax(0, 1fr));
-  }
-
-  .quiz-actions {
-    flex-direction: column;
-  }
-
-  .btn {
-    width: 100%;
-  }
-}
-
-.challenge-copy {
-  margin-bottom: 22px;
   color: var(--muted);
-  font-size: 1.08rem;
-  line-height: 1.65;
-}
-
-.matches-section {
-  margin: 28px 0 32px;
-}
-
-.matches-section > h2,
-.answer-key-title {
-  font-size: clamp(1.35rem, 3vw, 1.8rem);
-}
-
-.matches-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 16px;
 }
 
 .match-card {
-  padding: 22px 18px;
-  border: 1px solid #fcd9a8;
-  border-radius: 20px;
-  background: linear-gradient(145deg, #fffaf2, #ffffff);
-}
-
-.match-avatar {
-  width: min(100%, 260px);
-  aspect-ratio: 1;
-  display: block;
-  margin-bottom: 16px;
-  border: 2px solid #e2e8f0;
-  border-radius: 20px;
-  object-fit: cover;
-}
-
-.match-card h3 {
-  margin-bottom: 6px;
-  font-size: 1.3rem;
+  color: var(--text);
+  background: #244661;
+  border-color: rgba(251, 191, 36, 0.45);
 }
 
 .match-company,
-.category-score {
-  color: #92400e;
-  font-size: 0.9rem;
-}
-
-.match-card blockquote {
-  margin: 18px 0 10px;
-  color: var(--text);
-  font-size: 1.02rem;
-  line-height: 1.55;
-}
-
-.quote-source {
-  color: var(--muted);
-  font-size: 0.78rem;
-  line-height: 1.45;
-}
-
-.category-score {
-  margin: 16px 0 0;
-  font-weight: 700;
-}
-
-.answer-key-title {
-  margin: 0 0 16px;
-}
-
-.result-item h3 {
-  line-height: 1.35;
-}
-
-.result-item .eyebrow {
-  margin-bottom: 0;
-}
-
-.result-item .explanation {
-  padding-top: 12px;
-  border-top: 1px solid #e2e8f0;
-  font-size: 0.92rem;
-}
-
-.founder-guide {
-  display: flex;
-  align-items: center;
-  gap: 14px;
-  margin: 0 0 22px;
-  padding: 12px 14px;
-  border: 1px solid #e2e8f0;
-  border-radius: 16px;
-  background: #f8fafc;
-}
-
-.guide-avatar {
-  width: 58px;
-  height: 58px;
-  flex: 0 0 auto;
-  border: 2px solid #e2e8f0;
-  border-radius: 50%;
-}
-
-.founder-guide .eyebrow {
-  margin-bottom: 4px;
-  font-size: 0.66rem;
-}
-
-.founder-guide strong,
-.founder-guide span {
-  display: block;
-}
-
-.founder-guide span {
-  margin-top: 3px;
-  color: var(--muted);
-  font-size: 0.85rem;
+.category-score,
+.pillar-card span {
+  color: #fde68a;
 }
 
 .answer-feedback {
-  margin: 4px 0 22px;
-  padding: 18px;
-  border: 1px solid rgba(5, 150, 105, 0.4);
-  border-radius: 16px;
-  background: #ecfdf5;
+  color: var(--text);
+  background: #145144;
+  border-color: rgba(52, 211, 153, 0.55);
 }
 
 .answer-feedback.incorrect-feedback {
-  border-color: rgba(217, 119, 6, 0.4);
-  background: #fffbeb;
-}
-
-.answer-feedback .eyebrow {
-  margin-bottom: 8px;
-}
-
-.answer-feedback h3 {
-  margin-bottom: 8px;
-  line-height: 1.4;
+  background: #5a4521;
+  border-color: rgba(251, 191, 36, 0.55);
 }
 
 .answer-feedback > p:not(.eyebrow) {
   color: var(--muted);
-  line-height: 1.6;
 }
 
-.change-answer {
-  padding: 0.65rem 1rem;
-  font-size: 0.9rem;
+.btn.secondary {
+  color: var(--text);
+  background: #244661;
+  border-color: rgba(255, 255, 255, 0.22);
+}
+
+.product-icon,
+.pillar-icon {
+  background: rgba(251, 191, 36, 0.16);
 }
