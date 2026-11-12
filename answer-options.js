@@ -110,9 +110,13 @@ questions.forEach((question) => {
   const distractors = distractorsByEntrepreneur[question.entrepreneur];
   if (!distractors || !Array.isArray(question.choices)) return;
 
+  const originalAnswer = question.answer;
   let distractorIndex = 0;
   question.choices = question.choices.map((choice) => {
-    const nextChoice = choice === question.answer ? question.answer : distractors[distractorIndex++];
+    const nextChoice = choice === originalAnswer ? originalAnswer : distractors[distractorIndex++];
     return ensureSentenceEnding(nextChoice);
   });
+
+  // Keep the correct-answer key in sync with its punctuated displayed choice.
+  question.answer = ensureSentenceEnding(originalAnswer);
 });
