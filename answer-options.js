@@ -101,12 +101,18 @@ const distractorsByEntrepreneur = {
   ]
 };
 
+const ensureSentenceEnding = (value) => {
+  const trimmed = String(value).trim();
+  return trimmed.endsWith(".") ? trimmed : `${trimmed}.`;
+};
+
 questions.forEach((question) => {
   const distractors = distractorsByEntrepreneur[question.entrepreneur];
   if (!distractors || !Array.isArray(question.choices)) return;
 
   let distractorIndex = 0;
-  question.choices = question.choices.map((choice) =>
-    choice === question.answer ? choice : distractors[distractorIndex++]
-  );
+  question.choices = question.choices.map((choice) => {
+    const nextChoice = choice === question.answer ? question.answer : distractors[distractorIndex++];
+    return ensureSentenceEnding(nextChoice);
+  });
 });
