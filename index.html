@@ -11,5 +11,29 @@
     <div id="app"></div>
     <script src="quiz-data.js?v=what-do-you-do-31"></script>
     <script src="app.js?v=what-do-you-do-31"></script>
+    <script>
+      const distractorElaborations = {
+        Product: "while avoiding further product changes.",
+        Price: "while keeping the current pricing approach.",
+        Place: "while relying on existing sales channels.",
+        Promotion: "while sticking with familiar promotion methods.",
+        People: "while keeping the current team structure."
+      };
+      const appElement = document.getElementById("app");
+      const expandDistractors = () => {
+        const question = questions[state.currentIndex];
+        if (!question) return;
+
+        appElement.querySelectorAll(".option").forEach((option) => {
+          const input = option.querySelector("input");
+          const label = option.querySelector("span");
+          if (input && label && input.value !== question.answer && !label.dataset.expanded) {
+            label.textContent += ` ${distractorElaborations[question.category]}`;
+            label.dataset.expanded = "true";
+          }
+        });
+      };
+      new MutationObserver(expandDistractors).observe(appElement, { childList: true, subtree: true });
+    </script>
   </body>
 </html>
