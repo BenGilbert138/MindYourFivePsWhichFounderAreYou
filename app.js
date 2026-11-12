@@ -129,7 +129,7 @@ function renderOverview() {
       </section>
 
       <section class="pillars-section" aria-labelledby="pillars-heading">
-        <h2 id="pillars-heading">The 5 Ps Of Entrepreneurialsm <span class="footnote">* inspired by <a href="https://www.ifm.eng.cam.ac.uk/research/dstools/mintzbergs-5-ps-for-strategy/" target="_blank" rel="noopener noreferrer">Henry Mintzberg's 5 Ps of Strategy</a></span></h2>
+        <h2 id="pillars-heading">The 5 Ps of Entrepreneurialism* <span class="footnote"><a href="https://www.ifm.eng.cam.ac.uk/research/dstools/mintzbergs-5-ps-for-strategy/" target="_blank" rel="noopener noreferrer">inspired by Henry Mintzberg's 5 Ps of Strategy</a></span></h2>
         <div class="pillars">
           ${cards}
         </div>
